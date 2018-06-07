@@ -12,6 +12,10 @@ Install Node:
 brew install node
 node -v
 ```
+Install Watchman:
+```
+brew install watchman
+```
 Install Git:
 ```
 brew install git
@@ -20,10 +24,6 @@ git --version
 Install React-Native CLI:
 ```
 npm install react-native-cli -g
-```
-Install Watchman:
-```
-npm install watchman -g
 ```
 Install XCode Command Line Tools:
 ```
