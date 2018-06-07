@@ -35,7 +35,7 @@ xcode-select --install
 ```
 # To Run
 ```
-git clone
+git clone https://github.com/dtfiedler/react-native-github.git
 npm install
 react-native run-ios
 ```
