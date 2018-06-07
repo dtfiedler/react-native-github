@@ -75,9 +75,11 @@ var styles = StyleSheet.create({
         padding: 10
     }, 
     logo: {
-        width:100,
-        height:100,
-        marginBottom: 20
+        width:250,
+        height: 100,
+        marginBottom: 20,
+        resizeMode: 'contain',
+        alignSelf: 'center'
     },
     input: {
         height: 50,
