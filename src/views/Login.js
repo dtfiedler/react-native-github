@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal, Text, View, StyleSheet, Image, TextInput, TouchableHighlight, ActivityIndicator} from 'react-native';
-const authService = require('./AuthService');
+import AuthService from '../providers/AuthService';
+import config from '../../config';
 
 class Login extends React.Component {
     constructor(props){
@@ -20,7 +21,7 @@ class Login extends React.Component {
         }
         return (
             <View style={styles.container}>
-                <Image style={styles.logo} source={require('./logo.png')}/>
+                <Image style={styles.logo} source={require('../assets/logo.png')}/>
                 <TextInput 
                         style={styles.input} 
                         autoCapitalize='none'
@@ -52,7 +53,7 @@ class Login extends React.Component {
 
     _onLoginPressed(){
         this.setState({showProgress: true});
-        authService.login({
+        AuthService.login({
             username: this.state.username,
             password: this.state.password
         }, (results) => {

@@ -11,16 +11,9 @@ import {
   View,
   ActivityIndicator
 } from 'react-native';
-var Login = require('./Login');
-var AuthService = require('./AuthService');
-var AppContainer = require('./AppContainer');
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import Login from './src/views/Login';
+import AuthService from './src/providers/AuthService';
+import AppContainer from './src/views/AppContainer';
 
 export default class App extends Component {
   constructor(props){

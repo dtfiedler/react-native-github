@@ -3,8 +3,8 @@ import {Image, Text, View, ListView, StyleSheet, TabBarIOS, ActivityIndicator, T
 import moment from 'moment';
 import _ from 'lodash';
 import PushPayload from './PushPayload';
-const authService = require('./AuthService');
-const config = require('./config');
+import AuthService from '../providers/AuthService';
+import config from '../../config';
 
 class Feed extends React.Component {
     constructor(props){
@@ -25,7 +25,7 @@ class Feed extends React.Component {
     }
 
     fetchFeed(){
-        authService.getAuthInfo((error, authInfo) => {
+        AuthService.getAuthInfo((error, authInfo) => {
             var url = config.github.baseURL + '/users/' + authInfo.user.login+ '/repos'
             var options = {
                 headers: authInfo.header

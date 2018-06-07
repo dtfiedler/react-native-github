@@ -5,7 +5,6 @@ import Search from './Search';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Settings from './Settings';
 
-
 class AppContainer extends React.Component {
     constructor(props){
         super(props);

@@ -3,8 +3,8 @@ import {TextInput, Text, View, ListView, StyleSheet, TabBarIOS, ActivityIndicato
 import moment from 'moment';
 import _ from 'lodash';
 import Icon from 'react-native-vector-icons/Octicons';
-const authService = require('./AuthService');
-const config = require('./config');
+import AuthService from '../providers/AuthService';
+import config from '../../config';
 
 class Search extends React.Component {
     constructor(props){
@@ -25,7 +25,7 @@ class Search extends React.Component {
 
     searchRepos(){
         this.setState({showProgress: true});
-        authService.getAuthInfo((error, authInfo) => {
+        AuthService.getAuthInfo((error, authInfo) => {
             var url = config.github.baseURL + '/search/repositories?q=' + encodeURIComponent(this.state.searchQuery)
             var options = {
                 headers: authInfo.header

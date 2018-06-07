@@ -3,10 +3,8 @@ import {TextInput, Text, View, ListView, StyleSheet, TabBarIOS, ActivityIndicato
 import moment from 'moment';
 import _ from 'lodash';
 import Icon from 'react-native-vector-icons/Octicons';
-import App from './App';
-import Login from './Login';
-const authService = require('./AuthService');
-const config = require('./config');
+import AuthService from '../providers/AuthService';
+import config from '../../config';
 
 class Settings extends React.Component {
     constructor(props){
@@ -18,7 +16,7 @@ class Settings extends React.Component {
 
     logout(){
         console.log('logging user out')
-        authService.logout(() => {
+        AuthService.logout(() => {
             console.log(this.props)
             this.props.onLogout();
         })

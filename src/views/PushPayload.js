@@ -2,9 +2,9 @@ import React from 'react';
 import {Image, Text, View, ListView, StyleSheet, TabBarIOS, ActivityIndicator, TouchableHighlight} from 'react-native';
 import moment from 'moment';
 import _ from 'lodash';
-const authService = require('./AuthService');
-const config = require('./config');
-const width = '100%';
+import AuthService from '../providers/AuthService';
+import config from '../../config';
+
 class PushPayload extends React.Component {
     constructor(props){
         super(props);
@@ -24,7 +24,7 @@ class PushPayload extends React.Component {
     }
 
     fetchCommits(){
-        authService.getAuthInfo((error, authInfo) => {
+        AuthService.getAuthInfo((error, authInfo) => {
             var url = this.state.pushEvent.commits_url.replace('{/sha}', '')
             var options = {
                 headers: authInfo.headers
