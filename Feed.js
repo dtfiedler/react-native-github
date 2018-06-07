@@ -5,7 +5,7 @@ import _ from 'lodash';
 import PushPayload from './PushPayload';
 const authService = require('./AuthService');
 const config = require('./config');
-const width = '100%';
+
 class Feed extends React.Component {
     constructor(props){
         super(props);
@@ -28,14 +28,13 @@ class Feed extends React.Component {
         authService.getAuthInfo((error, authInfo) => {
             var url = config.github.baseURL + '/users/' + authInfo.user.login+ '/repos'
             var options = {
-                headers: authInfo.headers
+                headers: authInfo.header
             }
             fetch(url, options)
             .then(response => response.json())
             .then(responseData => {
                 var feedItems = _.sortBy(responseData, 'updated_at');
                 feedItems = feedItems.reverse();
-                console.log(feedItems)
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(feedItems),
                     showProgress: false
@@ -46,7 +45,6 @@ class Feed extends React.Component {
         })
     }
     pressRow(rowData){
-        console.log(rowData)
         this.props.navigator.push({
             title: "Details",
             component: PushPayload,

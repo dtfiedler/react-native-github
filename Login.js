@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image, TextInput, TouchableHighlight, ActivityIndicator} from 'react-native';
+import {Modal, Text, View, StyleSheet, Image, TextInput, TouchableHighlight, ActivityIndicator} from 'react-native';
 const authService = require('./AuthService');
 
 class Login extends React.Component {
@@ -19,40 +19,39 @@ class Login extends React.Component {
             errorCtrl = <Text style={styles.error}>Something went wrong, please try again.</Text>
         }
         return (
-           <View style={styles.container}>
-               <Image style={styles.logo} source={require('./logo.png')}/>
-               <TextInput 
-                    style={styles.input} 
-                    autoCapitalize='none'
-                    placeholder="Github Username"
-                    onChangeText={(text) => this.setState({username: text})}>
-                </TextInput>
-               <TextInput 
-                    style={styles.input} 
-                    placeholder="Github Password" 
-                    onChangeText={(text) => this.setState({password: text})}
-                    secureTextEntry={true}>
-                </TextInput>
-                <TouchableHighlight 
-                    style={styles.button}
-                    onPress={this._onLoginPressed.bind(this)}>
-                    <Text style={styles.buttonText}>Log in</Text>
-                </TouchableHighlight>
-               
-                {errorCtrl}
+            <View style={styles.container}>
+                <Image style={styles.logo} source={require('./logo.png')}/>
+                <TextInput 
+                        style={styles.input} 
+                        autoCapitalize='none'
+                        placeholder="Github Username"
+                        onChangeText={(text) => this.setState({username: text})}>
+                    </TextInput>
+                <TextInput 
+                        style={styles.input} 
+                        placeholder="Github Password" 
+                        onChangeText={(text) => this.setState({password: text})}
+                        secureTextEntry={true}>
+                    </TextInput>
+                    <TouchableHighlight 
+                        style={styles.button}
+                        onPress={this._onLoginPressed.bind(this)}>
+                        <Text style={styles.buttonText}>Log in</Text>
+                    </TouchableHighlight>
+                
+                    {errorCtrl}
 
-                <ActivityIndicator
-                    animating={this.state.showProgress}
-                    size="large"
-                    style={styles.loader}
-                    />
-            </View>
+                    <ActivityIndicator
+                        animating={this.state.showProgress}
+                        size="large"
+                        style={styles.loader}
+                        />
+             </View>
         )
     }
 
     _onLoginPressed(){
         this.setState({showProgress: true});
-        console.log('attempting to login to ', this.state.username);
         authService.login({
             username: this.state.username,
             password: this.state.password
@@ -72,8 +71,8 @@ var styles = StyleSheet.create({
         flex: 1,
         paddingTop: 60,
         alignItems: 'center',
-        padding: 10
-    }, 
+        padding: 10,
+    },
     logo: {
         width:250,
         height: 100,
@@ -89,14 +88,14 @@ var styles = StyleSheet.create({
         fontSize: 16,
         borderWidth: 1,
         borderColor: '#48BBEC',
-        alignSelf: 'stretch'
+        alignSelf: 'center'
     },
     button: {
         marginTop: 10, 
         height: 50,
         width: 300,
         backgroundColor: '#48BBEC',
-        alignSelf: 'stretch',
+        alignSelf: 'center',
         justifyContent: 'center',
         borderRadius: 5
     }, 

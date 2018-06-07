@@ -64,6 +64,12 @@ class AuthService {
                 return callback(error);
             })
     }
+
+    logout(callback){
+        AsyncStorage.clear().then(()=> {
+            callback();
+        });
+    }
 }
 
 module.exports = new AuthService;

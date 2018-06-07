@@ -1,5 +1,6 @@
 <div align="center">
     <img src="screenshot.png" height=450>
+    <img src="screenshot2.png" height=450>
 </div>
 
 # React Native Tutorial

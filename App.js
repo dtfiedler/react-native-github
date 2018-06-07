@@ -29,11 +29,9 @@ export default class App extends Component {
       isLoggedIn: false,
       checkingAuth: true
     }
-    this.onLogin = this.onLogin.bind(this);
   }
   componentDidMount(){
     AuthService.getAuthInfo((error, authInfo) => {
-      console.log(authInfo);
       this.setState({
         checkingAuth: false,
         isLoggedIn: authInfo != null
@@ -42,6 +40,9 @@ export default class App extends Component {
   }
   onLogin(){
     this.setState({isLoggedIn: true})
+  }
+  onLogout(){
+    this.setState({isLoggedIn: false})
   }
   render() {
     if(this.state.checkingAuth){
@@ -56,30 +57,17 @@ export default class App extends Component {
     }
     if (this.state.isLoggedIn){
       return (
-        <AppContainer/>
+        <AppContainer onLogout={this.onLogout.bind(this)}/>
       )
     } else {
       return (
-        <View style={styles.container}>
-          <Login onLogin={this.onLogin}/>
-        </View>
+        <Login onLogin={this.onLogin.bind(this)}/>
       );
     }
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
   instructions: {
     textAlign: 'center',
     color: '#333333',

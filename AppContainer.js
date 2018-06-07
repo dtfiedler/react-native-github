@@ -1,13 +1,25 @@
 import React from 'react';
 import {Text, View, StyleSheet, TabBarIOS, NavigatorIOS } from 'react-native';
 import Feed from './Feed';
+import Search from './Search';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Settings from './Settings';
+
 
 class AppContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             selectedTab: "feed"
+        }
+    }
+    componentDidMount(){
+        //this.onLogout = this.onLogout.bind(this);
+    }
+    onLogout(){
+        console.log('logging out');
+        if (this.props.onLogout){
+            this.props.onLogout();
         }
     }
     render() {
@@ -32,14 +44,20 @@ class AppContainer extends React.Component {
                     selected={this.state.selectedTab == 'search'}
                     onPress={() => this.setState({selectedTab: 'search'})}
                     iconName="search">
-                    <Text>Tab 1</Text>
+                    <NavigatorIOS 
+                        style={{flex: 1}}
+                        initialRoute={{
+                            component: Search,
+                            title: "Search"
+                        }}>
+                    </NavigatorIOS>
                 </Icon.TabBarItemIOS>
                 <Icon.TabBarItemIOS
                     title="Settings"
                     selected={this.state.selectedTab == 'saved'}
                     onPress={() => this.setState({selectedTab: 'saved'})}
                     iconName="settings">
-                    <Text>Tab 1</Text>
+                    <Settings onLogout={this.onLogout.bind(this)}/>
                 </Icon.TabBarItemIOS>
             </TabBarIOS>
         )
