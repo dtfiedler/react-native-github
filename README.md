@@ -5,9 +5,8 @@
     <img src="screenshot.png" height=450>
     <img src="screenshot2.png" height=450>
 </div>
-
-
-Demo react native app following Pluralsight tutorial available [here](https://app.pluralsight.com/player?course=build-ios-apps-react-native&author=hendrik-swanepoel&name=build-ios-apps-react-native)
+<br>
+This is an example react native app following Pluralsight tutorial available [here](https://app.pluralsight.com/player?course=build-ios-apps-react-native&author=hendrik-swanepoel&name=build-ios-apps-react-native)
 
 # Set up your Environment
 Install Brew:
