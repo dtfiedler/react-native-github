@@ -72,6 +72,7 @@ var styles = StyleSheet.create({
         paddingTop: 60,
         alignItems: 'center',
         padding: 10,
+        backgroundColor: 'white'
     },
     logo: {
         width:250,
