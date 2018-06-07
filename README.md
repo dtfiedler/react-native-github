@@ -1,9 +1,9 @@
 
 # React Native Tutorial
 <div align="center">
-    <img src="login.png" height=450>
-    <img src="screenshot.png" height=450>
-    <img src="screenshot2.png" height=450>
+    <img src="src/assetslogin.png" height=450>
+    <img src="src/assets/screenshot.png" height=450>
+    <img src="src/assets/screenshot2.png" height=450>
 </div>
 
 
