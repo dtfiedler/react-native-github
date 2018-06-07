@@ -1,6 +1,4 @@
 # OSX
-ios/
-android/
 node_modules/
 #
 .DS_Store
